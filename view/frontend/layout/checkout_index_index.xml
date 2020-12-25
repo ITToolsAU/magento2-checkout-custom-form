@@ -39,7 +39,8 @@
                                                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                                                     <item name="dataScope" xsi:type="string">customCheckoutForm.checkout_goods_mark</item>
                                                                                     <item name="label" xsi:type="string">Serial Number</item>
-                                                                                    <item name="sortOrder" xsi:type="string">4</item>
+                                                                                    <item name="sortOrder" xsi:type="string">1</item>
+                                                                                    <item name="placeholder" xsi:type="string">Please enter your device serial number if available</item>
                                                                                 </item>
                                                                             </item>
                                                                         </item>
