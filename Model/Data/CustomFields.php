@@ -21,113 +21,27 @@ use Bodak\CheckoutCustomForm\Api\Data\CustomFieldsInterface;
  */
 class CustomFields extends AbstractExtensibleObject implements CustomFieldsInterface
 {
+
     /**
-     * Get checkout buyer name
+     * Get checkout serial number
      *
      * @return string|null
      */
-    public function getCheckoutBuyerName()
+    public function getCheckoutSerialNumber()
     {
-        return $this->_get(self::CHECKOUT_BUYER_NAME);
-    }
-
-    /**
-     * Get checkout buyer email
-     *
-     * @return string|null
-     */
-    public function getCheckoutBuyerEmail()
-    {
-        return $this->_get(self::CHECKOUT_BUYER_EMAIL);
-    }
-
-    /**
-     * Get checkout purchase order number
-     *
-     * @return string|null
-     */
-    public function getCheckoutPurchaseOrderNo()
-    {
-        return $this->_get(self::CHECKOUT_PURCHASE_ORDER_NO);
-    }
-
-    /**
-     * Get checkout goods mark
-     *
-     * @return string|null
-     */
-    public function getCheckoutGoodsMark()
-    {
-        return $this->_get(self::CHECKOUT_GOODS_MARK);
-    }
-
-    /**
-     * Get checkout comment
-     *
-     * @return string|null
-     */
-    public function getCheckoutComment()
-    {
-        return $this->_get(self::CHECKOUT_COMMENT);
-    }
-
-    /**
-     * Set checkout buyer name
-     *
-     * @param string|null $checkoutBuyerName Buyer name
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutBuyerName(string $checkoutBuyerName = null)
-    {
-        return $this->setData(self::CHECKOUT_BUYER_NAME, $checkoutBuyerName);
-    }
-
-    /**
-     * Set checkout buyer email
-     *
-     * @param string|null $checkoutBuyerEmail Buyer email
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutBuyerEmail(string $checkoutBuyerEmail = null)
-    {
-        return $this->setData(self::CHECKOUT_BUYER_EMAIL, $checkoutBuyerEmail);
-    }
-
-    /**
-     * Set checkout purchase order number
-     *
-     * @param string|null $checkoutPurchaseOrderNo Purchase order number
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutPurchaseOrderNo(string $checkoutPurchaseOrderNo = null)
-    {
-        return $this->setData(self::CHECKOUT_PURCHASE_ORDER_NO, $checkoutPurchaseOrderNo);
+        return $this->_get(self::CHECKOUT_SERIAL_NUMBER);
     }
 
     /**
      * Set checkout goods mark
      *
-     * @param string|null $checkoutGoodsMark Goods mark
+     * @param string|null $checkoutSerialNumber Goods mark
      *
      * @return CustomFieldsInterface
      */
-    public function setCheckoutGoodsMark(string $checkoutGoodsMark = null)
+    public function setCheckoutSerialNumber(string $checkoutSerialNumber = null)
     {
-        return $this->setData(self::CHECKOUT_GOODS_MARK, $checkoutGoodsMark);
+        return $this->setData(self::CHECKOUT_SERIAL_NUMBER, $checkoutSerialNumber);
     }
 
-    /**
-     * Set checkout comment
-     *
-     * @param string|null $comment Comment
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutComment(string $comment = null)
-    {
-        return $this->setData(self::CHECKOUT_COMMENT, $comment);
-    }
 }

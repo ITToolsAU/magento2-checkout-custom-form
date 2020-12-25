@@ -84,24 +84,8 @@ class CustomFieldsRepository implements CustomFieldsRepositoryInterface
 
         try {
             $cart->setData(
-                CustomFieldsInterface::CHECKOUT_BUYER_NAME,
-                $customFields->getCheckoutBuyerName()
-            );
-            $cart->setData(
-                CustomFieldsInterface::CHECKOUT_BUYER_EMAIL,
-                $customFields->getCheckoutBuyerEmail()
-            );
-            $cart->setData(
-                CustomFieldsInterface::CHECKOUT_PURCHASE_ORDER_NO,
-                $customFields->getCheckoutPurchaseOrderNo()
-            );
-            $cart->setData(
-                CustomFieldsInterface::CHECKOUT_GOODS_MARK,
-                $customFields->getCheckoutGoodsMark()
-            );
-            $cart->setData(
-                CustomFieldsInterface::CHECKOUT_COMMENT,
-                $customFields->getCheckoutComment()
+                CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER,
+                $customFields->getCheckoutSerialNumber()
             );
 
             $this->cartRepository->save($cart);
@@ -125,21 +109,8 @@ class CustomFieldsRepository implements CustomFieldsRepositoryInterface
         if (!$order->getId()) {
             throw new NoSuchEntityException(__('Order %1 does not exist', $order));
         }
-
-        $this->customFields->setCheckoutBuyerName(
-            $order->getData(CustomFieldsInterface::CHECKOUT_BUYER_NAME)
-        );
-        $this->customFields->setCheckoutBuyerEmail(
-            $order->getData(CustomFieldsInterface::CHECKOUT_BUYER_EMAIL)
-        );
-        $this->customFields->setCheckoutPurchaseOrderNo(
-            $order->getData(CustomFieldsInterface::CHECKOUT_PURCHASE_ORDER_NO)
-        );
-        $this->customFields->setCheckoutGoodsMark(
-            $order->getData(CustomFieldsInterface::CHECKOUT_GOODS_MARK)
-        );
-        $this->customFields->setCheckoutComment(
-            $order->getData(CustomFieldsInterface::CHECKOUT_COMMENT)
+        $this->customFields->setCheckoutSerialNumber(
+            $order->getData(CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER)
         );
 
         return $this->customFields;

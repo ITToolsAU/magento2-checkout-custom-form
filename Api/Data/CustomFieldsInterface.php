@@ -20,89 +20,22 @@ namespace Bodak\CheckoutCustomForm\Api\Data;
  */
 interface CustomFieldsInterface
 {
-    const CHECKOUT_BUYER_NAME = 'checkout_buyer_name';
-    const CHECKOUT_BUYER_EMAIL = 'checkout_buyer_email';
-    const CHECKOUT_PURCHASE_ORDER_NO = 'checkout_purchase_order_no';
-    const CHECKOUT_GOODS_MARK = 'checkout_goods_mark';
-    const CHECKOUT_COMMENT = 'checkout_comment';
-
-    /**
-     * Get checkout buyer name
-     *
-     * @return string|null
-     */
-    public function getCheckoutBuyerName();
-
-    /**
-     * Get checkout buyer email
-     *
-     * @return string|null
-     */
-    public function getCheckoutBuyerEmail();
-
-    /**
-     * Get checkout purchase order number
-     *
-     * @return string|null
-     */
-    public function getCheckoutPurchaseOrderNo();
-
-    /**
-     * Get checkout goods mark
-     *
-     * @return string|null
-     */
-    public function getCheckoutGoodsMark();
+    const CHECKOUT_SERIAL_NUMBER = 'checkout_serial_number';
 
     /**
      * Get checkout comment
      *
      * @return string|null
      */
-    public function getCheckoutComment();
-
-    /**
-     * Set checkout buyer name
-     *
-     * @param string|null $checkoutBuyerName Buyer name
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutBuyerName(string $checkoutBuyerName = null);
-
-    /**
-     * Set checkout buyer email
-     *
-     * @param string|null $checkoutBuyerEmail Buyer email
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutBuyerEmail(string $checkoutBuyerEmail = null);
-
-    /**
-     * Set checkout purchase order number
-     *
-     * @param string|null $checkoutPurchaseOrderNo Purchase order number
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutPurchaseOrderNo(string $checkoutPurchaseOrderNo = null);
+    public function getCheckoutSerialNumber();
 
     /**
      * Set checkout goods mark
      *
-     * @param string|null $checkoutGoodsMark Goods mark
+     * @param string|null $checkoutSerialNumber
      *
      * @return CustomFieldsInterface
      */
-    public function setCheckoutGoodsMark(string $checkoutGoodsMark = null);
+    public function setCheckoutSerialNumber(string $checkoutSerialNumber = null);
 
-    /**
-     * Set checkout comment
-     *
-     * @param string|null $comment Comment
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutComment(string $comment = null);
 }
