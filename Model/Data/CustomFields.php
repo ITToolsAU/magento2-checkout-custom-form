@@ -23,25 +23,25 @@ class CustomFields extends AbstractExtensibleObject implements CustomFieldsInter
 {
 
     /**
-     * Get checkout serial number
+     * Get checkout goods mark
      *
      * @return string|null
      */
-    public function getCheckoutSerialNumber()
+    public function getCheckoutGoodsMark()
     {
-        return $this->_get(self::CHECKOUT_SERIAL_NUMBER);
+        return $this->_get(self::CHECKOUT_GOODS_MARK);
     }
 
     /**
      * Set checkout goods mark
      *
-     * @param string|null $checkoutSerialNumber Goods mark
+     * @param string|null $checkoutGoodsMark Goods mark
      *
      * @return CustomFieldsInterface
      */
-    public function setCheckoutSerialNumber(string $checkoutSerialNumber = null)
+    public function setCheckoutGoodsMark(string $checkoutGoodsMark = null)
     {
-        return $this->setData(self::CHECKOUT_SERIAL_NUMBER, $checkoutSerialNumber);
+        return $this->setData(self::CHECKOUT_GOODS_MARK, $checkoutGoodsMark);
     }
 
 }

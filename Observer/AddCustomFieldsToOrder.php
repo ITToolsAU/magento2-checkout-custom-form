@@ -35,8 +35,9 @@ class AddCustomFieldsToOrder implements ObserverInterface
         $quote = $observer->getEvent()->getQuote();
 
         $order->setData(
-            CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER,
-            $quote->getData(CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER)
+            CustomFieldsInterface::CHECKOUT_GOODS_MARK,
+            $quote->getData(CustomFieldsInterface::CHECKOUT_GOODS_MARK)
         );
+
     }
 }

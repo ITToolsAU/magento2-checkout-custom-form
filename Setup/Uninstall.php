@@ -59,7 +59,7 @@ class Uninstall implements UninstallInterface
     {
         $this->setup->getConnection()->dropColumn(
             $this->setup->getTable('quote'),
-            CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER
+            CustomFieldsInterface::CHECKOUT_GOODS_MARK
         );
     }
 
@@ -72,7 +72,23 @@ class Uninstall implements UninstallInterface
     {
         $this->setup->getConnection()->dropColumn(
             $this->setup->getTable('sales_order'),
-            CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER
+            CustomFieldsInterface::CHECKOUT_BUYER_NAME
+        );
+        $this->setup->getConnection()->dropColumn(
+            $this->setup->getTable('sales_order'),
+            CustomFieldsInterface::CHECKOUT_BUYER_EMAIL
+        );
+        $this->setup->getConnection()->dropColumn(
+            $this->setup->getTable('sales_order'),
+            CustomFieldsInterface::CHECKOUT_PURCHASE_ORDER_NO
+        );
+        $this->setup->getConnection()->dropColumn(
+            $this->setup->getTable('sales_order'),
+            CustomFieldsInterface::CHECKOUT_GOODS_MARK
+        );
+        $this->setup->getConnection()->dropColumn(
+            $this->setup->getTable('sales_order'),
+            CustomFieldsInterface::CHECKOUT_COMMENT
         );
     }
 }

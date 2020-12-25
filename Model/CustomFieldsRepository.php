@@ -84,10 +84,9 @@ class CustomFieldsRepository implements CustomFieldsRepositoryInterface
 
         try {
             $cart->setData(
-                CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER,
-                $customFields->getCheckoutSerialNumber()
+                CustomFieldsInterface::CHECKOUT_GOODS_MARK,
+                $customFields->getCheckoutGoodsMark()
             );
-
             $this->cartRepository->save($cart);
         } catch (\Exception $e) {
             throw new CouldNotSaveException(__('Custom order data could not be saved!'));
@@ -109,8 +108,9 @@ class CustomFieldsRepository implements CustomFieldsRepositoryInterface
         if (!$order->getId()) {
             throw new NoSuchEntityException(__('Order %1 does not exist', $order));
         }
-        $this->customFields->setCheckoutSerialNumber(
-            $order->getData(CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER)
+
+        $this->customFields->setCheckoutGoodsMark(
+            $order->getData(CustomFieldsInterface::CHECKOUT_GOODS_MARK)
         );
 
         return $this->customFields;

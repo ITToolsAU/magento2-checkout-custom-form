@@ -97,7 +97,7 @@ class InstallData implements InstallDataInterface
         $quoteInstaller
             ->addAttribute(
                 'quote',
-                CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER,
+                CustomFieldsInterface::CHECKOUT_GOODS_MARK,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
             );
     }
@@ -118,7 +118,7 @@ class InstallData implements InstallDataInterface
         $salesInstaller
             ->addAttribute(
                 'order',
-                CustomFieldsInterface::CHECKOUT_SERIAL_NUMBER,
+                CustomFieldsInterface::CHECKOUT_GOODS_MARK,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
             );
     }

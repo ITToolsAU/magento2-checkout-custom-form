@@ -20,22 +20,22 @@ namespace Bodak\CheckoutCustomForm\Api\Data;
  */
 interface CustomFieldsInterface
 {
-    const CHECKOUT_SERIAL_NUMBER = 'checkout_serial_number';
+    const CHECKOUT_GOODS_MARK = 'checkout_goods_mark';
 
     /**
-     * Get checkout comment
+     * Get checkout goods mark
      *
      * @return string|null
      */
-    public function getCheckoutSerialNumber();
+    public function getCheckoutGoodsMark();
 
     /**
      * Set checkout goods mark
      *
-     * @param string|null $checkoutSerialNumber
+     * @param string|null $checkoutGoodsMark Goods mark
      *
      * @return CustomFieldsInterface
      */
-    public function setCheckoutSerialNumber(string $checkoutSerialNumber = null);
+    public function setCheckoutGoodsMark(string $checkoutGoodsMark = null);
 
 }
