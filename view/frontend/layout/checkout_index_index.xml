@@ -38,9 +38,21 @@
                                                                                     </item>
                                                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                                                     <item name="dataScope" xsi:type="string">customCheckoutForm.checkout_goods_mark</item>
-                                                                                    <item name="label" xsi:type="string">Serial Number</item>
+                                                                                    <item name="label" xsi:type="string">Serial <Numbers></Numbers></item>
                                                                                     <item name="sortOrder" xsi:type="string">1</item>
-                                                                                    <item name="placeholder" xsi:type="string">Please enter your device serial number if available</item>
+                                                                                </item>
+                                                                                <item name="checkout_goods_mark_add" xsi:type="array">
+                                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                                    <item name="config" xsi:type="array">
+                                                                                        <item name="customScope" xsi:type="string">customCheckoutForm</item>
+                                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                                    </item>
+                                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                                    <item name="label" xsi:type="string">Add Serial Number</item>
+                                                                                    <item name="sortOrder" xsi:type="string">1</item>
+                                                                                    <item name="placeholder" xsi:type="string">Please enter your device serial number here</item>
+                                                                                    <item name="visible" xsi:type="boolean">false</item>
                                                                                 </item>
                                                                             </item>
                                                                         </item>

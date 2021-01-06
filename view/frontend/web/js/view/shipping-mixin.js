@@ -59,4 +59,5 @@ define([
     return function (target) {
         return target.extend(mixin);
     };
+
 });

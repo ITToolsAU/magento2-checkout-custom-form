@@ -4,6 +4,9 @@
             <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
+            <button type="button" title="Add Serial Number" class="add" id="custom-checkout-form-add-btn" data-bind="click: addNewSerial">
+                <span data-bind="i18n: 'Add serial number'></span>
+            </button>
         </fieldset>
     </form>
 </div>

@@ -46,6 +46,14 @@ define([
         },
 
         /**
+         * Trigger save method if form is change
+         */
+        addNewSerial: function () {
+            console.log('button code');
+            uiRegistry.get('index = field2Depend1').field1.show();
+        },
+
+        /**
          * Form submit handler
          */
         saveCustomFields: function() {
