@@ -14,10 +14,21 @@ $customFields = $block->getOrderCustomFields();
                 <div class="box">
                     <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Serial number') ?></span></strong>
                     <div class="box-content">
-                        <?php echo $this->escapeHtml($customFields->getCheckoutGoodsMark()); ?>
+                        <input readOnly id="serial_list" type="hidden" disabled="disabled" value="<?php echo $this->escapeHtml($customFields->getCheckoutGoodsMark()); ?>"/>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script type="text/javascript">
+        requirejs(['jquery','tagify'], function(jQuery, tagify) {
+            var input = document.querySelector('#serial_list');
+            this.tagifyField = new tagify(input, {
+                dropdown: {
+                    position: 'text',
+                    enabled: 1
+                }
+            });
+        });
+    </script>
 <?php endif; ?>
