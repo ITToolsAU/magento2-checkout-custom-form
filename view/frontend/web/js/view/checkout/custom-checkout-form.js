@@ -9,8 +9,10 @@ define([
     'Magento_Checkout/js/model/url-builder',
     'Magento_Checkout/js/model/error-processor',
     'Magento_Checkout/js/model/cart/cache',
-    'Bodak_CheckoutCustomForm/js/model/checkout/custom-checkout-form'
-], function(ko, $, urlFormatter, Component, customer, quote, urlBuilder, errorProcessor, cartCache, formData) {
+    'Bodak_CheckoutCustomForm/js/model/checkout/custom-checkout-form',
+    'uiRegistry',
+    'tagify'
+], function (ko, $, urlFormatter, Component, customer, quote, urlBuilder, errorProcessor, cartCache, formData, registry, tagify) {
     'use strict';
 
     return Component.extend({
@@ -31,7 +33,7 @@ define([
                 formData = this.source.set('customCheckoutForm', formDataCached);
             }
 
-            this.customFields.subscribe(function(change){
+            this.customFields.subscribe(function (change) {
                 self.formData(change);
             });
 
@@ -45,59 +47,81 @@ define([
             this.saveCustomFields();
         },
 
-        /**
-         * Trigger save method if form is change
-         */
-        addNewSerial: function () {
-            console.log('button code');
-            uiRegistry.get('index = field2Depend1').field1.show();
+        insertNewSerial: function () {
+            this.setTagElement();
+            this.tagifyField.addEmptyTag();
+        },
+
+        setTagElement: function() {
+            if (!this.tagifyField) {
+                $("#serial_header").show();
+                var input = document.querySelector('[name="checkout_goods_mark"]');
+                this.tagifyField = new tagify(input, {
+                    dropdown: {
+                        position: 'text',
+                        enabled: 1
+                    }
+                });
+                $("input[name='checkout_goods_mark']").show();
+            }
         },
 
         /**
          * Form submit handler
          */
-        saveCustomFields: function() {
-            this.source.set('params.invalid', false);
-            this.source.trigger('customCheckoutForm.data.validate');
+        saveCustomFields: function () {
+            var formData = this.source.get('customCheckoutForm');
+            // if(formData.checkout_goods_mark != '' && !this.tagifyField) {
+            //     debugger;
+            //     var input = document.querySelector('[name="checkout_goods_mark"]');
+            //     if(input) {
+            //         this.tagifyField = new tagify(input, {
+            //             dropdown: {
+            //                 position: 'text',
+            //                 enabled: 1
+            //             }
+            //         });
+            //     }
+            // }
+            var quoteId = quote.getQuoteId();
+            var isCustomer = customer.isLoggedIn();
+            var url;
 
-            if (!this.source.get('params.invalid')) {
-                var formData = this.source.get('customCheckoutForm');
-                var quoteId = quote.getQuoteId();
-                var isCustomer = customer.isLoggedIn();
-                var url;
-
-                if (isCustomer) {
-                    url = urlBuilder.createUrl('/carts/mine/set-order-custom-fields', {});
-                } else {
-                    url = urlBuilder.createUrl('/guest-carts/:cartId/set-order-custom-field', {cartId: quoteId});
-                }
-
-                var payload = {
-                    cartId: quoteId,
-                    customFields: formData
-                };
-                var result = true;
-                $.ajax({
-                    url: urlFormatter.build(url),
-                    data: JSON.stringify(payload),
-                    global: false,
-                    contentType: 'application/json',
-                    type: 'PUT',
-                    async: true
-                }).done(
-                    function (response) {
-                        cartCache.set('custom-form', formData);
-                        result = true;
-                    }
-                ).fail(
-                    function (response) {
-                        result = false;
-                        errorProcessor.process(response);
-                    }
-                );
-
-                return result;
+            if (isCustomer) {
+                url = urlBuilder.createUrl('/carts/mine/set-order-custom-fields', {});
+            } else {
+                url = urlBuilder.createUrl('/guest-carts/:cartId/set-order-custom-field', {cartId: quoteId});
             }
-        }
+
+            var payload = {
+                cartId: quoteId,
+                customFields: formData
+            };
+            var result = true;
+            $.ajax({
+                url: urlFormatter.build(url),
+                data: JSON.stringify(payload),
+                global: false,
+                contentType: 'application/json',
+                type: 'PUT',
+                async: true
+            }).done(
+                function (response) {
+                    cartCache.set('custom-form', formData);
+                    result = true;
+                }
+            ).fail(
+                function (response) {
+                    result = false;
+                    errorProcessor.process(response);
+                }
+            );
+
+            return result;
+        },
+
+        hideLoader: function() {
+            this.setTagElement();
+        },
     });
 });

@@ -50,7 +50,6 @@ define([
     'use strict';
 
     var mixin = {
-
         defaults: {
             template: 'Bodak_CheckoutCustomForm/shipping'
         }
