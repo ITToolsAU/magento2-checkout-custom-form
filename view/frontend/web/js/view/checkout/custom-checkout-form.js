@@ -63,6 +63,7 @@ define([
                     }
                 });
                 $("input[name='checkout_goods_mark']").show();
+                this.tagifyField.removeAllTags();
             }
         },
 
@@ -71,18 +72,6 @@ define([
          */
         saveCustomFields: function () {
             var formData = this.source.get('customCheckoutForm');
-            // if(formData.checkout_goods_mark != '' && !this.tagifyField) {
-            //     debugger;
-            //     var input = document.querySelector('[name="checkout_goods_mark"]');
-            //     if(input) {
-            //         this.tagifyField = new tagify(input, {
-            //             dropdown: {
-            //                 position: 'text',
-            //                 enabled: 1
-            //             }
-            //         });
-            //     }
-            // }
             var quoteId = quote.getQuoteId();
             var isCustomer = customer.isLoggedIn();
             var url;
