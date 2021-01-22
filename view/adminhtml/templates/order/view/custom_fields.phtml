@@ -12,7 +12,7 @@ $customFields = $block->getOrderCustomFields();
         <div class="admin__page-section-content">
             <div class="order-information">
                 <div class="box">
-                    <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Serial number') ?></span></strong>
+                    <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Serial numbers') ?></span>:</strong>
                     <div class="box-content">
                         <input readOnly id="serial_list" type="hidden" disabled="disabled" value="<?php echo $this->escapeHtml($customFields->getCheckoutGoodsMark()); ?>"/>
                     </div>
